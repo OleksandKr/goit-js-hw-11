@@ -58,7 +58,7 @@ body {
 }
 
 .load-more {
-    font-size: 25px;
+    font-size: 20px;
     padding: 10px;
     background-clip: padding-box;
     border-radius: 5px;
@@ -70,11 +70,8 @@ body {
     background-color: #7ae428;
     border: none;
     border-radius: 40px;
-
-    &.is-hidden {
-        display: none;
-    }
 }
+
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -83,13 +80,12 @@ body {
     
 }
 .main-block {
-    
     padding-top: 130px;
     padding-bottom: 50px;
 }
 .on-top {
     position: fixed;
-    font-size: 25px;
+    font-size: 20px;
     bottom: 3vh;
     right: 2vw;
     z-index: 1;

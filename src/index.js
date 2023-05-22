@@ -4,6 +4,7 @@ import Notiflix from 'notiflix';
 import { createImage } from './js/createImage'
 import { fetchImages, page, perPage, resetPage } from './js/fetchImages';
 import { onTop, onScroll } from './js/buttonUp';
+import './css/index.css';
 
 
 const form = document.querySelector("#search-form");
@@ -34,7 +35,7 @@ async function onSubmit(event) {
     if (searchValue === '') {
         clearAll();
         buttonHidden();
-        Notiflix.Notify.info('You cannot search by empty field, try again.');
+        Notiflix.Notify.info('Enter your search text.');
         return;
     } else {
         try {
@@ -65,7 +66,7 @@ async function onNextPage() {
         const totalPages = page * perPage;
             if (result.totalHits <= totalPages) {
                 buttonHidden();
-                Notiflix.Report.info('Wow', "We're sorry, but you've reached the end of search results.", 'Okay');
+                Notiflix.Report.info('Sorry, no more images!');
             }
         gallery.insertAdjacentHTML('beforeend', createImage(result.hits));
         smoothScroll();
@@ -97,7 +98,7 @@ function smoothScroll() {
     const { height: cardHeight } =
         document.querySelector(".photo-card").firstElementChild.getBoundingClientRect();
     window.scrollBy({
-    top: cardHeight * 3.9,
+    top: cardHeight * 2,
     behavior: "smooth",
 });
 };
